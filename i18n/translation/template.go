@@ -3,6 +3,7 @@ package translation
 import (
 	"bytes"
 	"encoding"
+	"math/rand"
 	"strings"
 	gotemplate "text/template"
 )
@@ -56,9 +57,18 @@ func (t *template) UnmarshalText(src []byte) error {
 func (t *template) parseTemplate(src string) (err error) {
 	t.src = src
 	if strings.Contains(src, "{{") {
-		t.tmpl, err = gotemplate.New(src).Parse(src)
+		t.tmpl, err = gotemplate.New(src).Funcs(t.addTemplateFunctions()).Parse(src)
 	}
 	return
+}
+
+// Adds needed custom template functions
+func (t *template) addTemplateFunctions() map[string]interface{} {
+	return map[string]interface{}{
+		"Random": func(values ...string) string {
+			return values[rand.Intn(len(values))]
+		},
+	}
 }
 
 var _ = encoding.TextMarshaler(&template{})
