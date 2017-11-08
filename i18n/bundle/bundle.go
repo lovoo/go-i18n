@@ -11,8 +11,8 @@ import (
 	"sync"
 	"unicode"
 
-	"github.com/nicksnyder/go-i18n/i18n/language"
-	"github.com/nicksnyder/go-i18n/i18n/translation"
+	"github.com/lovoo/go-i18n/i18n/language"
+	"github.com/lovoo/go-i18n/i18n/translation"
 	toml "github.com/pelletier/go-toml"
 	"gopkg.in/yaml.v2"
 )

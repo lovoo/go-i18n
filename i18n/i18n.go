@@ -56,9 +56,9 @@
 package i18n
 
 import (
-	"github.com/nicksnyder/go-i18n/i18n/bundle"
-	"github.com/nicksnyder/go-i18n/i18n/language"
-	"github.com/nicksnyder/go-i18n/i18n/translation"
+	"github.com/lovoo/go-i18n/i18n/bundle"
+	"github.com/lovoo/go-i18n/i18n/language"
+	"github.com/lovoo/go-i18n/i18n/translation"
 )
 
 // TranslateFunc returns the translation of the string identified by translationID.
