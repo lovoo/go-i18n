@@ -68,6 +68,16 @@ func (t *template) addTemplateFunctions() map[string]interface{} {
 		"Random": func(values ...string) string {
 			return values[rand.Intn(len(values))]
 		},
+		"Username": func(user map[string]string) string {
+			if _, ok := user["name"]; !ok {
+				return "<no value>"
+			}
+
+			return user["name"]
+		},
+		"Subtract": func(a, b int) int {
+			return a - b
+		},
 	}
 }
 
